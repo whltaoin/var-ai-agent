@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: var-ai-agent
+  profiles:
+    active: local
