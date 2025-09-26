@@ -70,6 +70,6 @@ bin/            # Eclipse编译输出目录
 *.pid           # 进程ID文件（如Spring Boot启动生成）
 *.seed          # 数据库种子文件
 *.ser           # Java序列化文件
-*local.yml      #本地配置
-
-*local*.yml
+# 正确（注释单独一行）
+# 忽略开发配置
+*local.yml
