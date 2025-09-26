@@ -71,3 +71,5 @@ bin/            # Eclipse编译输出目录
 *.seed          # 数据库种子文件
 *.ser           # Java序列化文件
 *local.yml      #本地配置
+
+*local*.yml
