@@ -19,14 +19,15 @@ import java.util.UUID;
 @Component
 
 @Slf4j
-public class ChatClientTest  implements CommandLineRunner {
+// public class ChatClientTest  implements CommandLineRunner {
+public class ChatClientTest  {
     String uuid = UUID.randomUUID().toString();
     Integer storageNum=10;
     @Resource
     private ChatModel dashScopeChatModel;
 
 
-    @Override
+
     public void run(String... args) throws Exception {
 
         log.info("uuid:{}",uuid);

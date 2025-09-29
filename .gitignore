@@ -73,3 +73,5 @@ bin/            # Eclipse编译输出目录
 # 正确（注释单独一行）
 # 忽略开发配置
 *local.yml
+
+chat-memory
