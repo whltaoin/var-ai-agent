@@ -47,4 +47,23 @@ public class IALDAAppTest {
         ialdaApp.fileSaveMessage(myPromptTemplate.getPrompt(), uuid);
 
     }
+
+    @Test
+    void localhostVectorSaveMessage() {
+        String uuid= UUID.randomUUID().toString();
+        String message = ialdaApp.localhostVectorSaveMessage( "我是软件工程专业的，可以给我推荐一名学术分析导师吗",uuid  );
+        System.out.println(message);
+
+
+    }
+
+    @Test
+    void cloudAlibabaDoChatWithRag() {
+        String uuid= UUID.randomUUID().toString();
+        String message = ialdaApp.cloudAlibabaDoChatWithRag( "我是软件工程专业，怎么开始写论文",uuid  );
+        System.out.println("cloudAlibabaDoChatWithRag:=================== "  );
+        System.out.println(message);
+        System.out.println("cloudAlibabaDoChatWithRag:=================== "  );
+
+    }
 }
