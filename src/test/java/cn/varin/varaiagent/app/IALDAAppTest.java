@@ -66,4 +66,17 @@ public class IALDAAppTest {
         System.out.println("cloudAlibabaDoChatWithRag:=================== "  );
 
     }
+
+    /**
+     * 本地过滤测试
+     */
+    @Test
+    void localhostVectorSaveMessageByFilterStatusTest() {
+        String uuid= UUID.randomUUID().toString();
+        String message = ialdaApp.localhostVectorSaveMessageByFilterStatus( "我是软件工程专业，怎么开始写论文",uuid ,"xxxx" );
+        System.out.println("cloudAlibabaDoChatWithRag:=================== "  );
+        System.out.println(message);
+        System.out.println("cloudAlibabaDoChatWithRag:=================== "  );
+
+    }
 }

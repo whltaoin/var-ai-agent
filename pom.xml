@@ -112,6 +112,13 @@
         </dependency>
 
 
+<!--postgresql-->
+
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-vector-store-pgvector</artifactId>
+            <version>1.0.0-M7</version>
+        </dependency>
 
 
 
