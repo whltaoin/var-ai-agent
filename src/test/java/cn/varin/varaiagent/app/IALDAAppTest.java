@@ -3,6 +3,7 @@ package cn.varin.varaiagent.app;
 
 import cn.varin.varaiagent.promptTamplate.MyPromptTemplate;
 import jakarta.annotation.Resource;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -78,5 +79,36 @@ public class IALDAAppTest {
         System.out.println(message);
         System.out.println("cloudAlibabaDoChatWithRag:=================== "  );
 
+    }
+
+    @Test
+    void testGetMessage() {
+    }
+
+    @Test
+    void getIALDAReport() {
+    }
+
+    @Test
+    void fileSaveMessage() {
+    }
+
+    @Test
+    void testLocalhostVectorSaveMessage() {
+    }
+
+    @Test
+    void testCloudAlibabaDoChatWithRag() {
+    }
+
+    @Test
+    void localhostVectorSaveMessageByFilterStatus() {
+    }
+
+    @Test
+    void getMessagewithTools() {
+        String messagewithTools = ialdaApp.getMessagewithTools("我是一名软件工程的学生，给我随机生成一张头像", UUID.randomUUID().toString());
+
+        Assertions.assertNotNull(messagewithTools);
     }
 }

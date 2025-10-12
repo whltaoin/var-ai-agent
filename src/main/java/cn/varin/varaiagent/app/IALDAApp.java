@@ -4,6 +4,7 @@ package cn.varin.varaiagent.app;
 import cn.varin.varaiagent.advisors.MyLogAdvisor;
 import cn.varin.varaiagent.chatMemory.FileChatMemory;
 import cn.varin.varaiagent.config.IALDAAppRagAlibabaAdvisorConfig;
+import cn.varin.varaiagent.config.ToolRegisterConfig;
 import cn.varin.varaiagent.rag.factory.AppRagAdvisorFactory;
 import com.alibaba.cloud.ai.dashscope.rag.DashScopeDocumentRetrievalAdvisor;
 import jakarta.annotation.Resource;
@@ -14,6 +15,8 @@ import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.client.advisor.api.Advisor;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.ai.chat.model.ChatResponse;
+import org.springframework.ai.tool.ToolCallback;
+import org.springframework.ai.tool.ToolCallbacks;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -153,6 +156,22 @@ public class IALDAApp {
         log.info("text:{}", text);
         return text;
     }
+
+    @Resource
+    private ToolCallback[] allTools;
+
+    public String getMessagewithTools(String content,String chatId) {
+        ChatResponse chatResponse = this.chatClient.prompt()
+                .user(content)
+                .tools(allTools)
+                .advisors(advisor -> advisor.param("chat_memory_conversation_id", chatId)
+                        .param("chat_memory_response_size", 10)).call().chatResponse();
+        String text = chatResponse.getResult().getOutput().getText();
+        log.info("text:{}", text);
+        return text;
+    }
+
+
 
 
 }
