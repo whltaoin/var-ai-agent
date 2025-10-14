@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: varin-image-search-mcp
+  profiles:
+    active: sse
+server:
+  port: 9977
+imageSearch:
+  api_key: 4RIT3Yms5GGHuAGuQ0kAatqgd2YA70iQH8gi1R8CGHtIEPt7643bjLe8

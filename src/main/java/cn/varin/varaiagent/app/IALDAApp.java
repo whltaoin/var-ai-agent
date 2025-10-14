@@ -16,6 +16,7 @@ import org.springframework.ai.chat.client.advisor.api.Advisor;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.tool.ToolCallback;
+import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.ToolCallbacks;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -160,6 +161,13 @@ public class IALDAApp {
     @Resource
     private ToolCallback[] allTools;
 
+    /**
+     * Ai调用工具
+     * @param content
+     * @param chatId
+     * @return
+     */
+
     public String getMessagewithTools(String content,String chatId) {
         ChatResponse chatResponse = this.chatClient.prompt()
                 .user(content)
@@ -170,6 +178,28 @@ public class IALDAApp {
         log.info("text:{}", text);
         return text;
     }
+    @Resource
+    private ToolCallbackProvider toolCallbackProvider;
+
+    /**
+     * 客户端调用MCP服务
+     * @param content
+     * @param chatId
+     * @return
+     */
+
+    public String getMessagewithMCPClient(String content,String chatId) {
+        ChatResponse chatResponse = this.chatClient.prompt()
+                .user(content)
+                .tools(toolCallbackProvider)
+                .advisors(advisor -> advisor.param("chat_memory_conversation_id", chatId)
+                        .param("chat_memory_response_size", 10)).call().chatResponse();
+        String text = chatResponse.getResult().getOutput().getText();
+        log.info("text:{}", text);
+        return text;
+    }
+
+
 
 
 

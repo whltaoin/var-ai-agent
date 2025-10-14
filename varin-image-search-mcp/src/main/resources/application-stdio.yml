@@ -1,0 +1,14 @@
+spring:
+  ai:
+    mcp:
+      server:
+        name: varin-image-search-mcp-server
+        version: 0.0.1
+        type: SYNC # 同步
+
+        stdio: true
+
+  main:
+    web-application-type: none  #不启动wb服务
+    banner-mode: off #关闭banner信息
+

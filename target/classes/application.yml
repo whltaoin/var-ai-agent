@@ -1,4 +1,14 @@
 spring:
+  ai:
+    mcp:
+      client:
+        stdio:
+         servers-configuration: classpath:mcp-servers.json
+#        sse:
+#          connections:
+#            server1:
+#              url: http://localhost:9977
+
   application:
     name: var-ai-agent
   profiles:
@@ -24,3 +34,5 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+
+

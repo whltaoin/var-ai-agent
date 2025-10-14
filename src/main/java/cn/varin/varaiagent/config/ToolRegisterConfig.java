@@ -22,6 +22,7 @@ public class ToolRegisterConfig {
         WebScrapingTool webScrapingTool = new WebScrapingTool();
         WebSearchApiTool webSearchApiTool = new WebSearchApiTool(apiKey);
         AvatarApiTool avatarApiTool = new AvatarApiTool();
+        TerminateTool terminateTool = new TerminateTool();
 
 
         ToolCallback[] from = ToolCallbacks.from(
@@ -31,7 +32,9 @@ public class ToolRegisterConfig {
                 resourceDownloadTool,
                 webScrapingTool,
                 webSearchApiTool
-    ,avatarApiTool
+    ,avatarApiTool,
+                terminateTool
+
 
         );
         return from;

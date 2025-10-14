@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/cn/varin/varaiagent/chatMemory/FileChatMemory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/varin-image-search-mcp/src/main/java" charset="UTF-8" />
   </component>
 </project>

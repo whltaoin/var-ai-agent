@@ -111,4 +111,10 @@ public class IALDAAppTest {
 
         Assertions.assertNotNull(messagewithTools);
     }
+
+    @Test
+    void getMessagewithMCPClient() {
+        String messagewithMCPClient = ialdaApp.getMessagewithMCPClient("我想找一些关于计算机类型的图片", UUID.randomUUID().toString());
+        Assertions.assertNotNull(messagewithMCPClient);
+    }
 }
