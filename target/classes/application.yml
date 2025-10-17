@@ -3,7 +3,9 @@ spring:
     mcp:
       client:
         stdio:
+         outtime: 50000
          servers-configuration: classpath:mcp-servers.json
+
 #        sse:
 #          connections:
 #            server1:

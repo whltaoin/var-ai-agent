@@ -21,6 +21,7 @@ import org.springframework.ai.tool.ToolCallbacks;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 
@@ -54,6 +55,23 @@ public class IALDAApp {
         log.info("text:{}", text);
         return text;
     }
+
+    /**
+     * 流式调用
+     * @param content
+     * @param chatId
+     * @return
+     */
+    public Flux<String> getMessageByStream(String content, String chatId) {
+        Flux<String> contentStream = this.chatClient.prompt()
+                .user(content)
+                .advisors(advisor -> advisor.param("chat_memory_conversation_id", chatId)
+                        .param("chat_memory_response_size", 10)).
+                stream().content();
+
+        return contentStream;
+    }
+
 
 
 
